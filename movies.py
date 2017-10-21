@@ -1,4 +1,4 @@
-#Author: Marko Mitrovic (email marko.mitrovic@yale.edu with any questions)
+#Author: Marko Mitrovic (please email marko.mitrovic@yale.edu with any questions)
 #Date Last Edited: Oct.20,2017
 #Requires Keras with Theano backend!
 
@@ -321,6 +321,10 @@ def kcv(uArr,users,i,numTrials):
 	return [trainSet,testSet]
 
 def rnn(kv,users,train,test,sl,numNodes,dropout,ep,bs):
+	#Train and test an LSTM-RNN (Long Short-Term Memory Recurrent Neural Network)
+	#we will train on sequences of length sl and attempt to predict the (sl+1)th movie for each user
+	#in the paper we use sl = 6, so the RNN will take a sequence of length 6 and attempt to predict the 7th movie in the sequence.
+	
 	
 	print 'Training/Testing LSTM-RNN...'
 	numMovies = 3706.0 #total number of movies, used for one hot encoding (this is a constant for this dataset).
